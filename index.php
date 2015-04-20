@@ -1,10 +1,11 @@
-<!doctype html>
-<html lang="fr">
-<head>
-	<meta charset="UTF-8">
-	<title>Page d'accueil</title>
-</head>
-<body>
+<?php $title = "Page d'accueil";
+	require("template/header.php");
+?>
 	<h1>Bonjour</h1>
-</body>
-</html>
+	Liste des tests :
+	<ul>
+		<li><a href="uploadPhotoTrial.php">Test upload photo</a></li>
+	</ul>
+<?php
+	require("template/footer");
+?>
