@@ -21,3 +21,20 @@
 	} else { // else print connexion's link
 		$session = $helper->getSessionFromRedirect();
 	}
+
+	if($session){
+		$_SESSION['fb_token'] = (string) $session->getAccessToken();
+
+		// N.B. : The 3 next statements can be executed on one line instead of 3
+		$request_user = new FacebookRequest($session, "GET", "/me");
+		$request_user_execute = $request_user->execute();
+		$user = $request_user_execute->getGraphObject(GraphUser::className());
+		// for a user's photos : /me/photos/uploaded and then getGraphObject(...)->AsArray()
+
+		echo "Bonjour " . $user->getName();
+//		var_dump($user);
+
+	} else {
+		$loginUrl = $helper->getLoginUrl(array("user_photos", "publish_actions"));
+		echo "<a href=" . $loginUrl . ">Connect with Facebook</a>";
+	}

@@ -1,5 +1,4 @@
 <?php
-	echo "test";
 	$title = "Page d'accueil";
 	require("template/header.php");
 ?>
@@ -9,5 +8,5 @@
 		<li><a href="uploadPhotoTrial.php">Test upload photo</a></li>
 	</ul>
 <?php
-	require("template/footer");
+	require("template/footer.php");
 ?>

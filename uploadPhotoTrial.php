@@ -13,7 +13,7 @@
 		try {
 			$response = (new FacebookRequest(
 				$session, 'POST', '/me/photos', array(
-					'source' => new CURLFile('D:\\Users\\hugo\\Desktop\\penguin.jpg', 'image/png'),
+					'url' => "https://photosparis.herokuapp.com/img/penguin.jpg",
 					'message' => 'User provided message'
 				)
 			))->execute()->getGraphObject();
