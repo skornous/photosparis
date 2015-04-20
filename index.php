@@ -1,4 +1,6 @@
-<?php $title = "Page d'accueil";
+<?php
+	echo "test";
+	$title = "Page d'accueil";
 	require("template/header.php");
 ?>
 	<h1>Bonjour</h1>

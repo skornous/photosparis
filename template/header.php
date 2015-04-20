@@ -1,4 +1,8 @@
-<?php require("conf/connect.php"); ?>
+<?php
+	error_reporting(E_ALL);
+	ini_set("display_error", 1);
+
+	require("conf/connect.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
