@@ -6,11 +6,24 @@
 	use Facebook\FacebookRequest;
 	use Facebook\GraphObject;
 	use Facebook\FacebookRequestException;
-
-	if ($session) {
-
-	}
 ?>
 <h1>Upload a photo</h1>
+<?php
+	if ($session) {
+		try {
+			$response = (new FacebookRequest(
+				$session, 'POST', '/me/photos', array(
+					'source' => new CURLFile('D:\\Users\\hugo\\Desktop\\penguin.jpg', 'image/png'),
+					'message' => 'User provided message'
+				)
+			))->execute()->getGraphObject();
+			var_dump($response);
+		} catch (FacebookRequestException $fre) {
+			echo "Exception occured, code: " . $fre->getCode();
+			echo " with message: " . $fre->getMessage();
+		}
+	}
+?>
+
 
 <?php require("template/footer.php"); ?>
