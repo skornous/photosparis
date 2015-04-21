@@ -1,4 +1,5 @@
 <?php
+	const SITE_URL = "http://localhost/photosparis";
 	error_reporting(E_ALL);
 	ini_set("display_error", 1);
 
@@ -13,7 +14,7 @@
 
 	FacebookSession::setDefaultApplication(APPID, APPSECRET);
 
-	$helper = new FacebookRedirectLoginHelper("https://photosparis.herokuapp.com/");
+	$helper = new FacebookRedirectLoginHelper("http://localhost/photosparis/");
 
 	// If var session exists && $_SESSION['fb_token'] exists -> create user from fb session
 	if (isset($_SESSION) && isset($_SESSION['fb_token'])) {
