@@ -29,3 +29,4 @@
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 </script>
+<a href="index.php">Back home</a>

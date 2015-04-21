@@ -1,5 +1,5 @@
 <?php
-	const SITE_URL = "http://localhost/photosparis";
+	const SITE_URL = "http://localhost/photosparis/";
 	error_reporting(E_ALL);
 	ini_set("display_error", 1);
 
@@ -14,7 +14,7 @@
 
 	FacebookSession::setDefaultApplication(APPID, APPSECRET);
 
-	$helper = new FacebookRedirectLoginHelper("http://localhost/photosparis/");
+	$helper = new FacebookRedirectLoginHelper(SITE_URL . $pageURL);
 
 	// If var session exists && $_SESSION['fb_token'] exists -> create user from fb session
 	if (isset($_SESSION) && isset($_SESSION['fb_token'])) {
@@ -32,10 +32,10 @@
 		$user = $request_user_execute->getGraphObject(GraphUser::className());
 		// for a user's photos : /me/photos/uploaded and then getGraphObject(...)->AsArray()
 
-		echo "Bonjour " . $user->getName();
+		echo "Bonjour " . $user->getName() . "<br>";
 //		var_dump($user);
 
 	} else {
-		$loginUrl = $helper->getLoginUrl(array("user_photos", "publish_actions"));
-		echo "<a href=" . $loginUrl . ">Connect with Facebook</a>";
+		$loginUrl = $helper->getLoginUrl($neededRights);
+		echo "<a href=" . $loginUrl . ">Connect with Facebook</a><br>";
 	}

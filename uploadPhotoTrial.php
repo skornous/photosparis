@@ -1,5 +1,7 @@
 <?php
 	$title = "Test upload photo";
+	$neededRights = array("user_photos", "publish_actions");
+	$pageURL = "uploadPhotoTrial.php";
 	require("template/header.php");
 
 	require("facebook-php-sdk-v4-4.0-dev/autoload.php");

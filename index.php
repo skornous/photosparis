@@ -1,11 +1,19 @@
 <?php
 	$title = "Page d'accueil";
+	$neededRights = array();
+	$pageURL = "index.php";
 	require("template/header.php");
+	use Facebook\FacebookRedirectLoginHelper;
 ?>
 	<h1>Bonjour</h1>
 	Liste des tests :
 	<ul>
 		<li><a href="uploadPhotoTrial.php">Test upload photo</a></li>
+		<?php
+			$helper = new FacebookRedirectLoginHelper(SITE_URL . "uploadPhotoWithPermissions.php");
+			$loginUrl = $helper->getLoginUrl(array("user_photos", "publish_actions"));
+			echo "<a href=" . $loginUrl . ">Test upload photo with permissions</a><br>";
+		?>
 	</ul>
 <?php
 	require("template/footer.php");
