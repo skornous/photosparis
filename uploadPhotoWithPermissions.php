@@ -1,6 +1,6 @@
 <?php
 	$title = "Test upload photo with permissions";
-	$neededRights = array("user_photos", "publish_actions");
+	$neededRights = array("publish_actions");
 	$pageURL = "uploadPhotoWithPermissions.php";
 	require("template/header.php");
 
@@ -65,7 +65,7 @@
 			}
 		} else {
 			echo "You did not gave the app the right to upload photos<br>";
-			$loginUrl = $helper->getLoginUrl($neededRights);
+			$loginUrl = $helper->getReRequestUrl($neededRights);
 			echo "<a href=" . $loginUrl . ">Add the rights</a><br>";
 			echo "<a href='/photosparis/'>Back to votes</a>";
 		}

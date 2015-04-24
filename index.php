@@ -11,8 +11,13 @@
 		<li><a href="uploadPhotoTrial.php">Test upload photo</a></li>
 		<?php
 			$helper = new FacebookRedirectLoginHelper(SITE_URL . "uploadPhotoWithPermissions.php");
-			$loginUrl = $helper->getLoginUrl(array("user_photos", "publish_actions"));
+			$loginUrl = $helper->getLoginUrl(array("publish_actions"));
 			echo "<a href=" . $loginUrl . ">Test upload photo with permissions</a><br>";
+		?>
+		<?php
+			$helper = new FacebookRedirectLoginHelper(SITE_URL . "uploadPhotoWithAlbum.php");
+			$loginUrl = $helper->getLoginUrl(array("user_photos","publish_actions"));
+			echo "<a href=" . $loginUrl . ">Test upload photo with album</a><br>";
 		?>
 	</ul>
 <?php

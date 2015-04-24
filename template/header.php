@@ -9,7 +9,7 @@
 	<meta charset="utf-8">
 	<title><?php echo $title; ?></title>
 	<!-- Compiled and minified CSS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+	<link rel="stylesheet" href="libs/materialize/css/materialize.min.css">
 </head>
 <body>
 <script>
