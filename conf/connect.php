@@ -4,13 +4,19 @@
 	ini_set("display_error", 1);
 
 	session_start();
-	require("conf/fb_credentials.php");
 	require("facebook-php-sdk-v4-4.0-dev/autoload.php");
 
 	use Facebook\FacebookRedirectLoginHelper;
 	use Facebook\FacebookSession;
 
-	FacebookSession::setDefaultApplication(APPID, APPSECRET);
+	if (file_exists("conf/fb_credentials.php")){
+		require("conf/fb_credentials.php");
+		FacebookSession::setDefaultApplication(APPID, APPSECRET);
+	} else if (isset(ENV["APPID"]) && isset(ENV["APPSECRET"])) {
+		FacebookSession::setDefaultApplication(ENV["APPID"], ENV["APPSECRET"]);
+	}
+
+
 
 	$helper = new FacebookRedirectLoginHelper(SITE_URL . $pageURL);
 
