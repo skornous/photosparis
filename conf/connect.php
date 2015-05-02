@@ -8,9 +8,7 @@
 	require("facebook-php-sdk-v4-4.0-dev/autoload.php");
 
 	use Facebook\FacebookRedirectLoginHelper;
-	use Facebook\FacebookRequest;
 	use Facebook\FacebookSession;
-	use Facebook\GraphUser;
 
 	FacebookSession::setDefaultApplication(APPID, APPSECRET);
 
@@ -21,21 +19,4 @@
 		$session = new FacebookSession($_SESSION['fb_token']);
 	} else { // else print connexion's link
 		$session = $helper->getSessionFromRedirect();
-	}
-
-	if($session){
-		$_SESSION['fb_token'] = (string) $session->getAccessToken();
-
-		// N.B. : The 3 next statements can be executed on one line instead of 3
-		$request_user = new FacebookRequest($session, "GET", "/me");
-		$request_user_execute = $request_user->execute();
-		$user = $request_user_execute->getGraphObject(GraphUser::className());
-		// for a user's photos : /me/photos/uploaded and then getGraphObject(...)->AsArray()
-
-		echo "Bonjour " . $user->getName() . "<br>";
-//		var_dump($user);
-
-	} else {
-		$loginUrl = $helper->getLoginUrl($neededRights);
-		echo "<a href=" . $loginUrl . ">Connect with Facebook</a><br>";
 	}
