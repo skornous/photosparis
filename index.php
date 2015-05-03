@@ -19,6 +19,7 @@
 			$loginUrl = $helper->getLoginUrl(array("user_photos","publish_actions"));
 			echo "<a href=" . $loginUrl . ">Test upload photo with album</a><br>";
 		?>
+		<li><a href="materializeTooltip.php">Test materialize tooltip</a></li>
 	</ul>
 <?php
 	require("template/footer.php");
