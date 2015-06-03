@@ -1,0 +1,66 @@
+#menu{
+	overflow: hidden;
+}
+
+.participe{
+    font-size: 40px;
+    height: 70px;
+    width: 550px;
+    margin: auto;
+}
+
+.vote {
+    font-size: 28px;
+    height: 50px;
+    width: 400px;
+    margin: auto;
+}
+
+.grille .grille-item{
+	width: 200px;
+	display: inline-block;
+}
+
+.grille .grille-item .img{
+	height: 150px;
+	overflow: hidden;
+	position: relative;
+}
+
+.grille .grille-item .img img{
+	/*max-width: 200px;*/
+	height: 150px;
+}
+
+.grille .grille-item .img i{
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	font-size: 30px;
+
+	-webkit-text-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+  -moz-text-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.grille .grille-item .info{
+	float: right;
+	font-size: 10px;
+}
+
+.grille .grille-item .info i{
+	width: 15px;
+	display: inline-block;
+	text-align: center;
+	border-radius:0px 0px 0px 5px;
+	position: relative;
+	left: 2px;
+}
+
+.grille .grille-item .info span{
+	width: 50px;
+	display: inline-block;
+	text-align: center;
+	border-radius:0px 0px 5px 0px;
+}
+
