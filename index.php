@@ -51,7 +51,7 @@
 	</div>
 	<script src="js/jquery-2.1.3.min.js" type="text/javascript"></script>
 	<script src="js/materialize.min.js" type="text/javascript"></script>
-	<script src="js/script.js" type="text/javascript"></script>
+	<!--<script src="js/script.js" type="text/javascript"></script>-->
 	<script>
 		$(function () {
 			$("#links a").click(function (e) {
