@@ -2,6 +2,20 @@
 	overflow: hidden;
 }
 
+.participe{
+    font-size: 40px;
+    height: 70px;
+    width: 550px;
+    margin: auto;
+}
+
+.vote {
+    font-size: 28px;
+    height: 50px;
+    width: 400px;
+    margin: auto;
+}
+
 .grille .grille-item{
 	width: 200px;
 	display: inline-block;
