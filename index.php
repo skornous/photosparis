@@ -20,6 +20,7 @@
 			echo "<a href=" . $loginUrl . ">Test upload photo with album</a><br>";
 		?>
 		<li><a href="materializeTooltip.php">Test materialize tooltip</a></li>
+		<li><a href="voteTrial.php">Test like photo</a></li>
 	</ul>
 <?php
 	require("template/footer.php");
