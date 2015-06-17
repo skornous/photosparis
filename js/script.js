@@ -2,7 +2,7 @@
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     // $('.modal-trigger').leanModal();
 
-	$("#basicExample").justifiedGallery({
+	$("#grille").justifiedGallery({
 	    rowHeight : 150,
 	    lastRow : 'nojustify',
 	    margins : 3,
@@ -11,18 +11,24 @@
 	    cssAnimation:true
 	});
 
-    $('.modal-trigger.photo').click(function(){
-    	// open modal
-    	$('#modal_photo').openModal();
-    	// change modal photo
-		$('#modal_photo img.photo').attr('src', $(this).find('img').first().attr('src'));
 
-		resizeModalImg();
-	});
+
+ //    $('.modal-trigger.photo').click(function(){
+ //    	// open modal
+ //    	$('#modal_photo').openModal();
+ //    	// change modal photo
+	// 	$('#modal_photo img.photo').attr('src', $(this).find('img').first().attr('src'));
+
+	// 	resizeModalImg();
+	// });
 
 	// $(window).resize(resizeModalImg);
 
 	
+	$(document).ready(function() {
+		$('select').material_select();
+	});
+
 });
 
 

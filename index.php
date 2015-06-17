@@ -29,9 +29,10 @@
 		<div class="col s2">
 			Liste des tests :
 			<ul>
-				<li><a href="?iframe=index.html">Index</a></li>
+				<li><a href="?iframe=index_home.html">Index accueil</a></li>
 				<li><a href="?iframe=index_grille.html">Index grille</a></li>
 				<li><a href="?iframe=index_menu.html">Index menu</a></li>
+				<li><a href="?iframe=index_vote.html">Index vote</a></li>
 			</ul>
 			<hr/>
 			Taille :
