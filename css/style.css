@@ -1,7 +1,17 @@
+#main{
+	margin: 0 auto;
+	padding: 0 10px;
+	min-height: 800px;
+	max-width: 850px;
+}
+
 #menu{
 	overflow: hidden;
 }
 
+.row.caption{
+	font-style: 20px;
+}
 .participe{
     font-size: 40px;
     height: 70px;
@@ -19,6 +29,8 @@
 .grille .grille-item{
 	width: 200px;
 	display: inline-block;
+	margin-left: 70px;
+	margin-bottom: 20px;
 }
 
 .grille .grille-item .img{
@@ -30,6 +42,7 @@
 .grille .grille-item .img img{
 	/*max-width: 200px;*/
 	height: 150px;
+	position: absolute;
 }
 
 .grille .grille-item .img i{
@@ -64,3 +77,15 @@
 	border-radius:0px 0px 5px 0px;
 }
 
+#modal_photo{
+	max-height: 100%;
+	max-width: 50%;
+}
+
+#modal_photo .modal-content{
+	padding: 0;
+}
+
+#modal_photo .modal-content img.photo{
+	/*max-width: 100%;*/
+}
