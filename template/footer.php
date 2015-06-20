@@ -8,6 +8,11 @@
 			echo "<script>" . $script . "</script>";
 		}
 	}
+	if (isset($scriptsUrls)) {
+		foreach($scriptsUrls as $script) {
+			echo "<script src='js/" . $script . ".js'></script>";
+		}
+	}
 ?>
 </body>
 </html>

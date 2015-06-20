@@ -13,9 +13,9 @@
 		require("conf/fb_credentials.php");
 		FacebookSession::setDefaultApplication(APPID, APPSECRET);
 	}
-//	else if (isset(ENV["APPID"]) && isset(ENV["APPSECRET"])) {
-//		FacebookSession::setDefaultApplication(ENV["APPID"], ENV["APPSECRET"]);
-//	}
+	else if (isset(ENV["APPID"]) && isset(ENV["APPSECRET"])) {
+		FacebookSession::setDefaultApplication(ENV["APPID"], ENV["APPSECRET"]);
+	}
 
 
 

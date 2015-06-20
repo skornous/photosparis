@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="libs/materialize/css/materialize.min.css">
 </head>
 <body>
+<div id="fb-root"></div>
 <script>
 	window.fbAsyncInit = function() {
 		FB.init({
