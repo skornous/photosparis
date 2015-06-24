@@ -9,12 +9,9 @@
 	use Facebook\FacebookRedirectLoginHelper;
 	use Facebook\FacebookSession;
 
-	if (file_exists("conf/fb_credentials.php")){
+	if (file_exists("conf/fb_credentials.php") && defined("APPSECRET") && defined("APPID")){
 		require("conf/fb_credentials.php");
 		FacebookSession::setDefaultApplication(APPID, APPSECRET);
-	}
-	else if (isset(ENV["APPID"]) && isset(ENV["APPSECRET"])) {
-		FacebookSession::setDefaultApplication(ENV["APPID"], ENV["APPSECRET"]);
 	}
 
 
