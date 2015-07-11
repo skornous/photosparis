@@ -1,5 +1,5 @@
 $(function () {
-    $(".fb-like").click(function () {
+    $(".pluginButtonLabel").click(function () {
         voteFor($(this).data("fbid"));
     });
 

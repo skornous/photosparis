@@ -13,7 +13,7 @@
 		?>
 <h1>Vote for a photo</h1>
 	<div class="fb-like"
-		data-href="https://photosparis.herokuapp.com/like_photo/10205740993142J215"
+		data-href="https://photosparis.herokuapp.com/action/like_photo/10205740993142J215"
 		data-layout="button_count"
 		data-action="like"
 		data-show-faces="false"
