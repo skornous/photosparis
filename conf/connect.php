@@ -1,5 +1,5 @@
 <?php
-	const SITE_URL = "http://localhost/photosparis/";
+	const SITE_URL = "https://photosparis.herokuapp.com/";
 	error_reporting(E_ALL);
 	ini_set("display_error", 1);
 
