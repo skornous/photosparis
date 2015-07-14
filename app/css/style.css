@@ -8,14 +8,19 @@ img{
 	padding: 0 10px;
 	height: 800px;
 	max-width: 850px;
+	/*background: #e3dcd0 url('../img/apn.png') no-repeat center ;*/
 }
 
 #menu{
 	overflow: hidden;
 }
 
+#menu a{
+	color:inherit;
+}
+
 .row.caption{
-	font-style: 20px;
+	font-size: 20px;
 }
 .participe{
     font-size: 40px;

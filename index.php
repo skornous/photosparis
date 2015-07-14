@@ -3,8 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Page d'accueil</title>
-	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="app/css/materialize.min.css">
 	<style>
 		body {
 			background-color: #e9eaed;
@@ -22,6 +21,7 @@
 			height: 800px;
 			margin: 0 auto;
 		}
+
 	</style>
 </head>
 <body>
@@ -29,10 +29,10 @@
 		<div class="col s2">
 			Liste des tests :
 			<ul>
-				<li><a href="?iframe=index_home.html">Index accueil</a></li>
-				<li><a href="?iframe=index_grille.html">Index grille</a></li>
-				<li><a href="?iframe=index_menu.html">Index menu</a></li>
-				<li><a href="?iframe=index_vote.html">Index vote</a></li>
+				<li><a href="">Index accueil</a></li>
+<!--				<li><a href="?iframe=index_grille.html">Index grille</a></li>-->
+<!--				<li><a href="?iframe=index_menu.html">Index menu</a></li>-->
+<!--				<li><a href="?iframe=index_vote.html">Index vote</a></li>-->
 			</ul>
 			<hr/>
 			Taille :
@@ -45,13 +45,13 @@
 			Rendu dans un iframe :<br>
 			<div id="iframe-container">
 				<div id="iframe-paddinger">
-					<iframe width="810" id="iframe" src="<?php if (!empty($_GET['iframe'])) echo $_GET["iframe"]; ?>" frameborder="0"></iframe>
+					<iframe width="810" id="iframe" src="app" frameborder="0"></iframe>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src="js/jquery-2.1.3.min.js" type="text/javascript"></script>
-	<script src="js/materialize.min.js" type="text/javascript"></script>
+	<script src="app/js/jquery-2.1.3.min.js" type="text/javascript"></script>
+	<script src="app/js/materialize.min.js" type="text/javascript"></script>
 	<!--<script src="js/script.js" type="text/javascript"></script>-->
 	<script>
 		$(function () {
