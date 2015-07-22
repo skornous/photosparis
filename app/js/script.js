@@ -1,16 +1,41 @@
  $(document).ready(function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    // $('.modal-trigger').leanModal();
+    $('.modal-trigger').leanModal();
+
+	$(document).ready(function(){
+		$('ul.tabs').tabs();
+	});
+
+	 $('.datepicker').pickadate({
+		 selectMonths: true, // Creates a dropdown to control month
+		 selectYears: 15 // Creates a dropdown of 15 years to control year
+	 });
 
 	$("#grille").justifiedGallery({
 	    rowHeight : 150,
 	    lastRow : 'nojustify',
 	    margins : 3,
-	    fixedHeight:true,
-	    captions:true,
-	    cssAnimation:true
+	    captions:true
 	});
 
+	 //$('.fixed_param').removeClass('active');
+     //
+	 //$('.fixed_param').hover(function(){
+		// openMenu_Params($(this));
+	 //});
+	 //$('.fixed_param').mouseleave(function(){
+		// closeMenu_Params($(this));
+	 //});
+
+	 $('#settings_button').click(function(){
+		 $('#settings_bar').toggleClass('active','');
+		 $(this).toggleClass('active','');
+	 });
+
+	 $('#photo_album ul.photo_list li').click(function(){
+		$('#photo_album .photo_list li').removeClass('active');
+		 $(this).addClass('active');
+	 });
 
 
  //    $('.modal-trigger.photo').click(function(){
@@ -23,11 +48,18 @@
 	// });
 
 	// $(window).resize(resizeModalImg);
+	var minilike = '<div class="lb_minilike valign-wrapper right"><span class="valign">100</span><i class="material-icons red-text small pointer valign">favorite_border</i></div>'
+	$('#lightbox .lb-closeContainer').append(minilike);
 
-	
-	$(document).ready(function() {
-		$('select').material_select();
-	});
+	$('.lb_minilike').click(function(){
+		$(this).toggleClass('like');
+		if($(this).hasClass('like')){
+			$(this).find('i').html('favorite');
+		}else{
+			$(this).find('i').html('favorite_border');
+		}
+	})
+	$('select').material_select();
 
 });
 
@@ -119,3 +151,33 @@ function resizeModalImg() {
 	// 	}
 
 	// });
+
+
+ var openMenu_Params = function (btn) {
+	 $this = btn;
+	 if ($this.hasClass('active') === false) {
+		 $this.addClass('active');
+		 $this.find('ul .btn-floating').velocity(
+			 { scaleY: ".4", scaleX: ".4", translateY: "-30px"},
+			 { duration: 0 });
+
+		 var time = 0;
+		 $this.find('ul .btn-floating').reverse().each(function () {
+			 $(this).velocity(
+				 { opacity: "1", scaleX: "1", scaleY: "1", translateY: "10px"},
+				 { duration: 80, delay: time });
+			 time += 40;
+		 });
+	 }
+ };
+
+ var closeMenu_Params = function (btn) {
+	 $this = btn;
+	 $this.removeClass('active');
+	 var time = 0;
+	 $this.find('ul .btn-floating').velocity("stop", true);
+	 $this.find('ul .btn-floating').velocity(
+		 { opacity: "0", scaleX: ".4", scaleY: ".4", translateY: "-30px"},
+		 { duration: 80 }
+	 );
+ };
