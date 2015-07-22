@@ -9,9 +9,9 @@ class DB {
 	private $pdo;
 	private $default = [ //todo change for heroku's values
 		"dbname" => "dbsivsg0ehbnft",
-		"dbhost" => "localhost",
+		"dbhost" => "ec2-54-228-227-217.eu-west-1.compute.amazonaws.com",
 		"dbuser" => "stxuwzojsvbypr",
-		"dbpassword" => "esgi",
+		"dbpassword" => "sdVl2a3p57qzybhDbbwBsXNODj",
 	];
 
 	function __construct($dbname = null, $dbhost = null, $dbuser = null, $dbpassword = null) {
@@ -31,7 +31,10 @@ class DB {
 		$pdo = null;
 
 		try {
+			// normal connection
 			$pdo = new PDO("pgsql:dbname=" . $dbname . ";host=".$dbhost, $dbuser, $dbpassword );
+			// ssl connection
+//			$pdo = new PDO("pgsql:dbname=" . $dbname . ";host=".$dbhost . ";user=" . $dbuser . ";password=" . $dbpassword . ";sslmode=require" );
 		} catch (Exception $e) {
 			echo "Unable to connect to database<br>" . $e->getMessage();
 		}
