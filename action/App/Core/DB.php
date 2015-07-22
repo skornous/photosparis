@@ -32,9 +32,9 @@ class DB {
 
 		try {
 			// normal connection
-			$pdo = new PDO("pgsql:dbname=" . $dbname . ";host=".$dbhost, $dbuser, $dbpassword );
+//			$pdo = new PDO("pgsql:dbname=" . $dbname . ";host=".$dbhost, $dbuser, $dbpassword );
 			// ssl connection
-//			$pdo = new PDO("pgsql:dbname=" . $dbname . ";host=".$dbhost . ";user=" . $dbuser . ";password=" . $dbpassword . ";sslmode=require" );
+			$pdo = new PDO("pgsql:dbname=" . $dbname . ";host=".$dbhost . ";user=" . $dbuser . ";password=" . $dbpassword . ";sslmode=require" );
 		} catch (Exception $e) {
 			echo "Unable to connect to database<br>" . $e->getMessage();
 		}
