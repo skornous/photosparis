@@ -11,8 +11,8 @@ class Autoloader {
 
 	public static function autoload($class){
 		$class = str_replace('\\', '/', $class);
-		$class = str_replace(__NAMESPACE__, strtolower(__NAMESPACE__), $class);
-		require '../' . $class . '.php';
+		$class = str_replace(__NAMESPACE__ . "/", '', $class);
+		require $class . '.php';
 	}
 
 }

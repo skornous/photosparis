@@ -10,6 +10,7 @@
 	use Facebook\FacebookRequestException;
 
 	if ($session) {
+	var_dump($session);
 		?>
 <h1>Vote for a photo</h1>
 	<div class="fb-like"
