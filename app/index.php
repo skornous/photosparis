@@ -1,7 +1,20 @@
 <?php
-    $page = ($_GET && $_GET['page']) ? $_GET['page'] : 'home';
 
+$neededRights = array();
+$pageURL = "index.php";
+require("conf/connect.php");
 
+    $page = ($_GET && isset($_GET['page'])) ? $_GET['page'] : 'home';
+
+if(!$_SESSION){
+    if($page != 'home'){
+        header('Location : '.fb_goto('home'));
+    }
+}else{
+    if($page == 'home'){
+        header('Location : '.fb_goto('grid'));
+    }
+}
 function fb_goto($page){
     return "index.php?page=".$page;
 }
@@ -9,11 +22,13 @@ function fb_goto($page){
 function fb_img($img){
     return "img/".$img;
 }
+
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ma Page</title>
+    <title>Photos Paris</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

@@ -2,8 +2,4 @@
   "require": {
     "ext-mbstring" : "*"
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> remotes/origin/test
