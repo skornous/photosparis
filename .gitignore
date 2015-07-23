@@ -49,3 +49,4 @@ crashlytics-build.properties
 
 ## Ignore conf files
 #conf/fb_credentials.php
+/vendor/

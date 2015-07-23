@@ -33,7 +33,9 @@
 //		close an event
 
 		$router->get('/like_photo/:id/:user', "Photo#voteFor")->with("id", "[0-9A-Za-z]+")->with("user", "[0-9A-Za-z]+");
-		$router->get('/post_photo/:id/:user', "Photo#add")->with("id", "[0-9A-Za-z]+")->with("user", "[0-9A-Za-z]+");
+//		$router->get('/post_photo/:id/:user', "Photo#add")->with("id", "[0-9A-Za-z]+")->with("user", "[0-9A-Za-z]+");
+		$router->post('/post_photo', "Photo#add");
+		$router->post('/post_user', "User#add");
 
 		$router->get('/', function () {
 

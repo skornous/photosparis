@@ -24,8 +24,60 @@ class PhotoController extends Controller {
 		}
 	}
 
-	public function add($id = null, $user = null) {
-		if (is_null($id) || is_null($user)) { return false; }
+//	public function add($id = null, $user = null) {
+//		if (is_null($id) || is_null($user)) {echo"bouh"; return false; }
+//
+//		// transform user fb id into a user
+//		$dbUser = $this->Models["User"]->getUserByFbId($user);
+//
+//		if ($dbUser !== false) {
+//			$dbUser = User::createFromArray($dbUser);
+//			// verify user
+////			if (!$this->Models["User"]->userExists($dbUser->getId())) {
+////				echo "Nice try<br>";
+////				return false;
+////			}
+//
+//			// verify photo doesn't already exists for the given user
+//			$linkExists = $this->Models["User"]->alreadyHaveFBPhoto($dbUser->getId(), $id);
+//
+//			if($linkExists !== true) {
+//				// add photo
+//				$addedPhoto = $this->Models["Photo"]->add(Photo::createFromArray([
+//					"id" => 0,
+//					"fb_id" => $id,
+//					"removed" => false,
+//				]));
+//
+//				// link the photo to the user
+//				if ($addedPhoto !== false) {
+//					echo "Photo added as $addedPhoto<br>";
+//					$linkUp = $this->Models["User"]->addPhotoLink($dbUser->getId(), $addedPhoto);
+//
+//					if ($linkUp !== false) {
+//						echo "Photo $id (or $addedPhoto in DB) linked to user $user (" . $dbUser->getId() . " in DB)<br>";
+//					} else {
+//						echo "Link to photo failed<br>";
+//					}
+//
+//				} else {
+//					echo "Photo not added<br>";
+//				}
+//			} else {
+//				echo "User already have this photo";
+//				return false;
+//			}
+//		}else{
+//			echo "User does not exist";
+//		}
+//	}
+
+	public function add() {
+
+		$id = (isset($_POST['photo'])) ? $_POST['photo'] : null;
+		$user = (isset($_POST['user'])) ? $_POST['user'] : null;
+
+		if (is_null($id) || is_null($user)) {echo"bouh"; return false; }
 
 		// transform user fb id into a user
 		$dbUser = $this->Models["User"]->getUserByFbId($user);
@@ -33,10 +85,10 @@ class PhotoController extends Controller {
 		if ($dbUser !== false) {
 			$dbUser = User::createFromArray($dbUser);
 			// verify user
-			if (!$this->Models["User"]->userExists($dbUser->getId())) {
-				echo "Nice try<br>";
-				return false;
-			}
+//			if (!$this->Models["User"]->userExists($dbUser->getId())) {
+//				echo "Nice try<br>";
+//				return false;
+//			}
 
 			// verify photo doesn't already exists for the given user
 			$linkExists = $this->Models["User"]->alreadyHaveFBPhoto($dbUser->getId(), $id);
@@ -67,6 +119,8 @@ class PhotoController extends Controller {
 				echo "User already have this photo";
 				return false;
 			}
+		}else{
+			echo "User does not exist";
 		}
 	}
 }

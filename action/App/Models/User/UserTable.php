@@ -101,4 +101,25 @@ class UserTable extends Model{
 			return false;
 		}
 	}
+
+	public function add($user = null) {
+
+		if (is_null($user)) {
+			return false;
+		}
+
+		$sql = "INSERT INTO photosparis.users(fb_id) VALUES (:fb_id);";
+
+		$rq = $this->db->prepare($sql);
+
+		$state = $rq->execute([
+			"fb_id" => $user->getFbId(),
+		]);
+
+		if ($state) {
+			return $this->db->lastInsertId('photosparis.users_id_seq1');
+		} else {
+			return false;
+		}
+	}
 }
