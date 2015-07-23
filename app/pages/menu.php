@@ -76,18 +76,6 @@
 
             <div class="row">
                 <div class="col s12">
-
-                        <div class="input-field s12">
-                            <i class="material-icons prefix material-icons">mode_comment</i>
-                            <textarea id="icon_prefix2" class="materialize-textarea" rows="2"></textarea>
-                            <label for="icon_prefix2">Description</label>
-                        </div>
-
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col s12">
                     <input type="submit" class="right btn btn-large" value="Valider" />
                 </div>
             </div>
@@ -109,7 +97,9 @@
 <div id="modal_info" class="modal">
     <div class="modal-content center-align">
         <h4>À propos</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et sem pharetra, placerat enim nec, vehicula sem. Donec pretium purus purus, et dignissim tortor ullamcorper non. Proin dapibus placerat tortor sed rhoncus. Praesent eget libero ut erat tincidunt maximus vel at odio. Nulla fringilla, quam et sollicitudin congue, eros odio vulputate dui, eget vulputate magna neque vitae nibh. Vivamus pulvinar nisl ut dui vehicula vehicula. Praesent porttitor est in est auctor eleifend. Quisque viverra nulla nec velit bibendum fermentum. Fusce venenatis sem vitae lorem gravida commodo. Nam mollis interdum felis, sit amet rhoncus mauris facilisis sit amet. Nunc et sollicitudin mi. In ac tincidunt nibh.</p>
+        <p>Photos Paris est une application intégrée au réseau social Facebook permettant de réaliser un concours photos, ouvert à tous les utilisateurs de Facebook.
+        <br>Il est réalisé dans le cadre d'un projet scolaire par un groupe d'étudiants en informatique, et hébergé sur le serveur d'applications Heroku.
+        <br>Il est disponible sur la page fan de <a href="https://www.facebook.com/pages/Photo-Paris/803180603102053">Photos Paris</a>.</p>
     </div>
 </div>
 

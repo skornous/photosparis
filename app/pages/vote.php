@@ -12,12 +12,6 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s12">
-                <i class="material-icons grey-text text-darken-1 pointer right small">more_vert</i>
-            </div>
-
-        </div>
-        <div class="row">
             <div class="col s12 center">
                 <i class="material-icons grey-text text-darken-1 medium pointer tooltipped" data-position="down" data-delay="50" data-tooltip="Suivant" >fast_forward</i>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
