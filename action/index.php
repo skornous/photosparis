@@ -20,8 +20,9 @@
 //DONE		get one particular photo -- PHOTO
 //DONE		add photo -- PHOTO
 //TODO		delete photo -- PHOTO
-//TODO		get user's photo -- PHOTO
+//DONE		get user's photo -- PHOTO
 //TODO		get random photo the user doesn't like -- PHOTO
+//TODO		get nb of likes on a photo
 
 
 		// -- Admin's actions -- //
