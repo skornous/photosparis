@@ -53,5 +53,6 @@
 <script src="js/jquery.justifiedGallery.min.js" type="text/javascript"></script>
 <script src="js/lightbox.min.js" type="text/javascript"></script>
 <script src="js/script.js" type="text/javascript"></script>
+<script src="js/ajax.js" type="text/javascript"></script>
 </body>
 </html>
