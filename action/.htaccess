@@ -2,4 +2,4 @@ RewriteEngine on
 
 RewriteCond %{REQUEST_FILENAME} !-f
 #TODO change it before using it on heroku (remove "/photoparis")
-RewriteRule ^(.*)$ /pp2/photosparis/action/index.php?url=$1 [QSA,L]
+RewriteRule ^(.*)$ /photosparis/action/index.php?url=$1 [QSA,L]

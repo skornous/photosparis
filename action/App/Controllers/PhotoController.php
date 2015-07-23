@@ -14,16 +14,6 @@ class PhotoController extends Controller {
 		$this->loadModel("User");
 	}
 
-	public function voteFor($id = null, $user = null) {
-		if (is_null($id) || is_null($user)) { return false; }
-
-		$newVote = $this->Models["Photo"]->voteForUsingId($id, $user);
-
-		if ($newVote !== false) {
-			echo "Vote success";
-		}
-	}
-
 	public function get($id = null) {
 		if (is_null($id)) { return false; }
 

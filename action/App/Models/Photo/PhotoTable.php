@@ -13,28 +13,6 @@
 			parent::__construct();
 		}
 
-		public function voteForUsingId($id = null, $user = null) {
-
-			if (is_null($id) || is_null($user)) {
-				return false;
-			}
-
-			$sql = "INSERT INTO photosparis.likes(photo_id, user_id) VALUES (:photo, :user);";
-
-			$rq = $this->db->prepare($sql);
-
-			$state = $rq->execute([
-				                      "photo" => $id,
-				                      "user"  => $user,
-			                      ]);
-
-			if ($state) {
-				return true;
-			} else {
-				return false;
-			}
-		}
-
 		// get photo by id
 		public function get($id = null) {
 			if (is_null($id)) { return false; }

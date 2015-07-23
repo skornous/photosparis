@@ -9,6 +9,7 @@
 namespace App\Controllers;
 
 
+use App\Models\Photo\Photo;
 use App\Models\User\User;
 
 class UserController extends Controller {
@@ -16,8 +17,8 @@ class UserController extends Controller {
     public function __construct($id = null) {
         parent::__construct();
         $this->loadModel("User");
+        $this->loadModel("Photo");
     }
-
 
     public function add() {
         $user = (isset($_POST['user'])) ? $_POST['user'] : null;
@@ -72,4 +73,84 @@ class UserController extends Controller {
             echo "User does not exist";
         }
     }
+
+    public function voteFor() {
+
+        $id = (isset($_POST['photo'])) ? $_POST['photo'] : null;
+		$user = (isset($_POST['user'])) ? $_POST['user'] : null;
+
+        if (is_null($id) || is_null($user)) { return false; }
+
+	    // transform user fb id into a user
+	    $dbUser = $this->Models["User"]->getUserByFbId($user);
+
+	    if ($dbUser !== false) {
+		    $dbUser = User::createFromArray($dbUser);
+
+		    // transform photo fb id into a user
+		    $dbPhoto = $this->Models["Photo"]->getPhotoByFbId($id);
+		    if ($dbPhoto !== false) {
+			    $dbPhoto = Photo::createFromArray($dbPhoto);
+
+			    $alreadyVote = $this->Models["User"]->hasVoted($dbUser->getId(), $dbPhoto->getId());
+
+			    if($alreadyVote) {
+				    echo 'User has already voted for this photo';
+			    } else {
+				    $newVote = $this->Models["User"]->voteForUsingId($dbPhoto->getId(), $dbUser->getId());
+
+				    if ($newVote !== false) {
+					    echo "Vote success";
+				    } else {
+					    echo 'Vote failed';
+				    }
+			    }
+
+		    } else {
+			    echo 'Photo does not exists';
+		    }
+	    } else {
+		    echo "User does not exists";
+	    }
+    }
+
+	public function removeVote() {
+
+		$id = (isset($_POST['photo'])) ? $_POST['photo'] : null;
+		$user = (isset($_POST['user'])) ? $_POST['user'] : null;
+
+		if (is_null($id) || is_null($user)) { return false; }
+
+		// transform user fb id into a user
+		$dbUser = $this->Models["User"]->getUserByFbId($user);
+
+		if ($dbUser !== false) {
+			$dbUser = User::createFromArray($dbUser);
+
+			// transform photo fb id into a user
+			$dbPhoto = $this->Models["Photo"]->getPhotoByFbId($id);
+			if ($dbPhoto !== false) {
+				$dbPhoto = Photo::createFromArray($dbPhoto);
+
+				$alreadyVote = $this->Models["User"]->hasVoted($dbUser->getId(), $dbPhoto->getId());
+
+				if(!$alreadyVote) {
+					echo 'This user never voted for this photo';
+				} else {
+					$removeVote = $this->Models["User"]->removeVote($dbPhoto->getId(), $dbUser->getId());
+
+					if ($removeVote !== false) {
+						echo "Remove vote success";
+					} else {
+						echo 'Remove vote failed';
+					}
+				}
+
+			} else {
+				echo 'Photo does not exists';
+			}
+		} else {
+			echo "User does not exists";
+		}
+	}
 }
