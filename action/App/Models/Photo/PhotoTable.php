@@ -152,4 +152,27 @@
 				return false;
 			}
 		}
+
+		public function getNbLikes($photo_id = null){
+			if (is_null($photo_id)) {
+				return false;
+			}
+
+			$sql = "SELECT count(p.photo_id) as likes FROM photosparis.photos as p, photosparis.likes as l
+					WHERE p.photo_id = l.photo_id AND p.photo_id = :photo_id AND removed = false; ";
+
+			$rq = $this->db->prepare($sql);
+
+			$state = $rq->execute([
+				"photo_id" => $photo_id,
+			]);
+
+			if ($state) {
+				$dbLikes = $rq->fetch(\PDO::FETCH_ASSOC);
+				return $dbLikes['likes'];
+			} else {
+				return false;
+			}
+		}
+
 	}
