@@ -22,7 +22,7 @@
 //TODO		delete photo -- PHOTO
 //DONE		get user's photo -- PHOTO
 //TODO		get random photo the user doesn't like -- PHOTO
-//TODO		get nb of likes on a photo
+//DONE		get nb of likes on a photo -- PHOTO
 
 
 		// -- Admin's actions -- //
@@ -37,6 +37,7 @@
 
 		$router->get('/get_photo/:id', "Photo#get")->with("id", "[0-9A-Za-z]+");
 		$router->get('/get_photo_by_user/:id', "Photo#getByUser")->with("id", "[0-9A-Za-z]+");
+		$router->get('/get_photo_likes/:id', "Photo#likes")->with("id", "[0-9A-Za-z]+");
 		$router->get('/', function () { echo json_encode(["code" => 1, "msg" => "nothing here"]); });
 
 		$router->post('/post_user', "User#add");
