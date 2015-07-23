@@ -19,7 +19,7 @@
 //TODO		get photo list (pagination) -- PHOTO
 //DONE		get one particular photo -- PHOTO
 //DONE		add photo -- PHOTO
-//TODO		delete photo -- PHOTO
+//--ABORT		delete photo -- PHOTO
 //DONE		get user's photo -- PHOTO
 //TODO		get random photo the user doesn't like -- PHOTO
 //DONE		get nb of likes on a photo -- PHOTO
@@ -27,13 +27,13 @@
 
 		// -- Admin's actions -- //
 
-//TODO		edit params -- EVENT
-//TODO		validate photo -- PHOTO (?)
-//TODO		remove photo -- PHOTO
-//TODO		get winner(s) primary email -- USER
-//TODO		get the list of the unvalidated photos (?)
+//--ABORT		edit params -- EVENT
+//--ABORT		validate photo -- PHOTO (?)
+//--ABORT		remove photo -- PHOTO
+//--ABORT		get winner(s) primary email -- USER ---> order by get photo list
+//--ABORT		get the list of the unvalidated photos (?)
 //DONE		ban a user -- USER
-//TODO		close an event -- EVENT
+//--ABORT		close an event -- EVENT
 
 		$router->get('/get_photo/:id', "Photo#get")->with("id", "[0-9A-Za-z]+");
 		$router->get('/get_photo_by_user/:id', "Photo#getByUser")->with("id", "[0-9A-Za-z]+");
