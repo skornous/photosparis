@@ -21,6 +21,10 @@ class Router {
 		return $this->add($path, $callable, $name, 'POST');
 	}
 
+	public function patch($path, $callable, $name = null){
+		return $this->add($path, $callable, $name, 'PATCH');
+	}
+
 	private function add($path, $callable, $name, $method){
 		$route = new Route($path, $callable);
 		$this->routes[$method][] = $route;

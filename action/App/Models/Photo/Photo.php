@@ -7,19 +7,16 @@ class Photo {
 
 	private $id;
 	private $fb_id;
-	private $removed;
 
 	public function exchangeArray($data) {
 		$this->id = (isset($data["id"])) ? $data["id"] : null;
 		$this->fb_id = (isset($data["fb_id"])) ? $data["fb_id"] : null;
-		$this->removed = (isset($data["removed"])) ? $data["removed"] : null;
 	}
 
 	public function getArrayCopy() {
 		return [
 			'id' => (int) $this->id,
 			'fb_id' => $this->fb_id,
-			'removed' => $this->removed,
 		];
 	}
 
@@ -48,12 +45,5 @@ class Photo {
 		$this->fb_id = $fb_id;
 	}
 
-	public function getRemoved() {
-		return $this->removed;
-	}
-
-	public function setRemoved($removed) {
-		$this->removed = $removed;
-	}
 
 }

@@ -38,7 +38,38 @@ class UserController extends Controller {
                 "banned" => $banned
             ]));
 
-            var_dump($addedUser);
+            if ($addedUser !== false) {
+                echo "User added as $addedUser<br>";
+            }else{
+                echo "Photo not added";
+            }
+        }
+    }
+
+    public function patch() {
+        $patch_datas = get_object_vars(json_decode(file_get_contents('php://input')));
+
+        $banned = (isset($patch_datas['banned'])) ? $patch_datas['banned'] : null;
+        $user = (isset($patch_datas['user'])) ? $patch_datas['user'] : null;
+
+        if (is_null($user)||is_null($banned)) { echo "Param missing"; return false; }
+
+        // transform user fb id into a user
+        $dbUser = $this->Models["User"]->getUserByFbId($user);
+
+        if ($dbUser !== false) {
+            $dbUser = User::createFromArray($dbUser);
+            $dbUser->setBanned($banned);
+
+            $dbUser = $this->Models["User"]->patch($dbUser);
+
+            if ($dbUser !== false) {
+                echo "Update success for user $user";
+            }else{
+                echo "Update failed";
+            }
+        }else{
+            echo "User does not exist";
         }
     }
 }

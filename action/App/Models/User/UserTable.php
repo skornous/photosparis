@@ -76,7 +76,7 @@ class UserTable extends Model{
 					u.id as user,
 					u.banned,
 					p.id as photo,
-					p.removed
+					up.removed
 				FROM
 					photosparis.users AS u
 					INNER JOIN photosparis.user_photos AS up
@@ -86,7 +86,7 @@ class UserTable extends Model{
 				WHERE
 					u.id = :user
 					AND p.fb_id = :photo
-					AND p.removed != TRUE";
+					AND up.removed != TRUE";
 
 		$rq = $this->db->prepare($sql);
 
@@ -122,4 +122,27 @@ class UserTable extends Model{
 			return false;
 		}
 	}
+
+	public function patch($user = null) {
+
+		if (is_null($user)) {
+			return false;
+		}
+
+	$sql = "UPDATE photosparis.users SET banned = :banned WHERE id = :id;";
+
+		$rq = $this->db->prepare($sql);
+
+		$state = $rq->execute([
+			"banned" => $user->getBanned(),
+			"id" => $user->getId(),
+		]);
+
+		if ($state) {
+			return $user;
+		} else {
+			return false;
+		}
+	}
+
 }
