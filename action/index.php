@@ -21,8 +21,8 @@
 //DONE		add photo -- PHOTO
 //--ABORT		delete photo -- PHOTO
 //DONE		get user's photo -- PHOTO
-//TODO		get random photo the user doesn't like -- PHOTO
-//DONE		get nb of likes on a photo -- PHOTO
+//DONE		get random photo -- PHOTO
+//DONE		get nb of likes on a photo -- PHOTOA
 
 
 		// -- Admin's actions -- //
