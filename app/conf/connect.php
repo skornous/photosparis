@@ -1,5 +1,5 @@
 <?php
-	const SITE_URL = "http://localhost/pp2/photosparis/app/";
+	const SITE_URL = "http://localhost/photosparis/app/";
 	error_reporting(E_ALL);
 	ini_set("display_error", 1);
 
@@ -9,12 +9,10 @@
 	use Facebook\FacebookRedirectLoginHelper;
 	use Facebook\FacebookSession;
 
-	if (file_exists("conf/fb_credentials.php")){
+	if (file_exists("conf/fb_credentials.php")) {
 		require("conf/fb_credentials.php");
 		FacebookSession::setDefaultApplication(APPID, APPSECRET);
 	}
-
-
 
 	$helper = new FacebookRedirectLoginHelper(SITE_URL . $pageURL);
 
