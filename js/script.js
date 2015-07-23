@@ -1,1 +1,0 @@
-var SITE_URL = "http://localhost/photosparis/";
