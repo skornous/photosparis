@@ -16,7 +16,7 @@
 //DONE		add user -- USER
 //DONE		vote -- USER +PHOTO
 //DONE		remove vote -- USER +PHOTO
-//TODO		get photo list (pagination) -- PHOTO
+//DONE		get photo list (pagination) -- PHOTO
 //DONE		get one particular photo -- PHOTO
 //DONE		add photo -- PHOTO
 //--ABORT		delete photo -- PHOTO
@@ -35,9 +35,11 @@
 //DONE		ban a user -- USER
 //--ABORT		close an event -- EVENT
 
+		$router->get('/get_photos', "Photo#getAll");
 		$router->get('/get_photo/:id', "Photo#get")->with("id", "[0-9A-Za-z]+");
 		$router->get('/get_photo_by_user/:id', "Photo#getByUser")->with("id", "[0-9A-Za-z]+");
 		$router->get('/get_photo_likes/:id', "Photo#likes")->with("id", "[0-9A-Za-z]+");
+		$router->get('/get_photo_random', "Photo#getRandom");
 		$router->get('/', function () { echo json_encode(["code" => 1, "msg" => "nothing here"]); });
 
 		$router->post('/post_user', "User#add");

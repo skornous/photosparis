@@ -30,6 +30,17 @@
 			}
 		}
 
+		public function getAll(){
+
+			$dbPhotos = $this->Models["Photo"]->getAllPhotos();
+
+			if($dbPhotos){
+				var_dump($dbPhotos);
+			} else {
+				echo "No photos to display";
+			}
+		}
+
 		public function getByUser($user_id = null) {
 
 			if (is_null($user_id)) {
@@ -56,6 +67,17 @@
 				}
 			} else {
 				echo "User does not exist";
+			}
+		}
+
+		public function getRandom() {
+
+			$photoRandom = $this->Models["Photo"]->getRandom();
+
+			if($photoRandom){
+				echo json_encode(['photo' => $photoRandom]);
+			}else{
+				echo "No random photos today";
 			}
 		}
 

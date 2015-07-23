@@ -33,6 +33,23 @@
 			}
 		}
 
+		public function getAllPhotos(){
+			$sql = "SELECT id, fb_id
+					FROM photosparis.photos as p
+						INNER JOIN photosparis.user_photos as up
+						ON p.id = up.photo_id
+					WHERE removed = false;";
+
+			$rq = $this->db->prepare($sql);
+
+			$state = $rq->execute();
+			if ($state) {
+				return $rq->fetchAll(\PDO::FETCH_ASSOC);
+			} else {
+				return false;
+			}
+		}
+
 		public function getPhotoByFbId($fb_id = null) {
 			if (is_null($fb_id)) { return false; }
 
@@ -84,6 +101,27 @@
 				$dbUserPhotos = $rq->fetch(\PDO::FETCH_ASSOC);
 				if($dbUserPhotos)
 					return $dbUserPhotos['photo_id'];
+				else
+					return false;
+			} else {
+				return false;
+			}
+		}
+
+		public function getRandom() {
+
+			$sql = "SELECT fb_id
+					FROM photosparis.photos
+					ORDER BY RANDOM() LIMIT 1";
+
+			$rq = $this->db->prepare($sql);
+
+			$state = $rq->execute();
+
+			if ($state) {
+				$dbUserPhotos = $rq->fetch(\PDO::FETCH_ASSOC);
+				if($dbUserPhotos)
+					return $dbUserPhotos['fb_id'];
 				else
 					return false;
 			} else {
